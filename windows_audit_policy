@@ -1,0 +1,45 @@
+#Advance Audit Policy for Windows2012 R2
+#created by: C2
+#If error in running script. Check the get-executionpolicy and set it to remotesigned or bypass.
+#
+#
+#System
+Auditpol /set /subcategory:"Security System Extension” /success:enable /failure:enable
+Auditpol /set /subcategory:"System Integrity” /success:enable /failure:enable
+Auditpol /set /subcategory:"IPsec Driver” /success:enable
+Auditpol /set /subcategory:"Other System Events” /failure:enable
+Auditpol /set /subcategory:"Security State Change” /success:enable /failure:enable
+#logon/logoff
+Auditpol /set /subcategory:"Logon” /success:enable /failure:enable
+Auditpol /set /subcategory:"Logoff” /success:enable
+Auditpol /set /subcategory:"Account Lockout” /success:enable
+Auditpol /set /subcategory:"Special Logon” /success:enable /failure:enable
+Auditpol /set /subcategory:"Other Logon/Logoff Events” /success:enable /failure:enable
+Auditpol /set /subcategory:"Network Policy Server” /success:enable /failure:enable
+#Object Access
+Auditpol /set /subcategory:"File System” /success:enable
+Auditpol /set /subcategory:"Registry” /success:enable
+Auditpol /set /subcategory:"SAM” /success:enable
+Auditpol /set /subcategory:"Application Generated” /success:enable /failure:enable
+Auditpol /set /subcategory:"Detailed File Share” /success:enable
+Auditpol /set /subcategory:"Removable Storage” /success:enable /failure:enable
+#Privilage Use
+Auditpol /set /subcategory:"Sensitive Privilege Use” /success:enable /failure:enable
+#Detailed Tracking
+Auditpol /set /subcategory:"Process Creation” /success:enable /failure:enable
+Auditpol /set /subcategory:"Process Termination” /success:enable /failure:enable
+Auditpol /set /subcategory:"RPC Events” /success:enable /failure:enable
+#Policy Change
+Auditpol /set /subcategory:"Authentication Policy Change” /success:enable /failure:enable
+Auditpol /set /subcategory:"Authorization Policy Change” /success:enable /failure:enable
+Auditpol /set /subcategory:"Filtering Platform Policy Change” /success:enable
+Auditpol /set /subcategory:"Audit Policy Change” /success:enable /failure:enable
+#Account Management
+auditpol /set /category:"Account Management" /failure:enable /success:enable
+#DS Access    
+Auditpol /set /subcategory:"Directory Service Changes” /success:enable /failure:enable
+#Account Logon
+Auditpol /set /subcategory:"Other Account Logon Events” /success:enable /failure:enable
+Auditpol /set /subcategory:"Credential Validation” /success:enable /failure:enable
+#List all audit policy
+auditpol /get /Category:*
